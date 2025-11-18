@@ -715,7 +715,7 @@
 
     <script>
         // ⚠️ 重要：請將下方網址替換成你的 Google Apps Script 網址
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVf1YhnZkkhoMOfu5r5SzjlHefwT78hEme-k_xL-j2Cc_TivpN_oT5qlmFfi3xt0k/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
         
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -759,33 +759,46 @@
             };
             
             // 提交到 Google Apps Script
+            // 使用 fetch 搭配 redirect 模式來檢測成功
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
+                redirect: 'follow',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain',
                 },
                 body: JSON.stringify(data)
             })
             .then(response => {
-                // 顯示成功訊息
-                formStatus.style.backgroundColor = '#d4edda';
-                formStatus.style.color = '#155724';
-                formStatus.textContent = '✓ 表單已成功送出！我們會盡快與您聯繫。';
-                
-                // 重置表單
-                form.reset();
-                
-                // 3 秒後隱藏訊息
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 3000);
+                // 檢查回應狀態
+                if (response.ok || response.redirected) {
+                    // 顯示成功訊息
+                    formStatus.style.backgroundColor = '#d4edda';
+                    formStatus.style.color = '#155724';
+                    formStatus.innerHTML = '✓ 表單已成功送出！我們會盡快與您聯繫。<br><small>您的諮詢已記錄，請保持電話暢通。</small>';
+                    
+                    // 重置表單
+                    form.reset();
+                    
+                    // 5 秒後隱藏訊息
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                    
+                    return true;
+                } else {
+                    throw new Error('提交失敗');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
                 formStatus.style.backgroundColor = '#f8d7da';
                 formStatus.style.color = '#721c24';
-                formStatus.textContent = '✗ 提交失敗，請稍後再試或直接來電聯繫。';
+                formStatus.innerHTML = '✗ 提交失敗，請稍後再試。<br><small>您也可以直接來電：0800-123-456 或 Email：haocuobian88@gmail.com</small>';
+                
+                // 錯誤訊息 8 秒後隱藏
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 8000);
             })
             .finally(() => {
                 submitBtn.disabled = false;
