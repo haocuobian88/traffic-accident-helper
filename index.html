@@ -619,19 +619,27 @@
     <section class="services">
         <div class="container">
             <h2>立即預約專業車禍諮詢</h2>
-            <p>不論你是被撞、肇事方、乘客或第三人，我們都提供客製化建議與法律支援</p>
+            <p>不論你是被撞、肇事方、乘客或第三人，我們提供全程服務、代理訴訟、理賠建議等客製化法律支援</p>
             <div class="service-list">
                 <div class="service-item">
                     <h4>🚨 緊急處理建議</h4>
                     <p>事故現場應變指導</p>
                 </div>
                 <div class="service-item">
-                    <h4>💼 保險理賠協助</h4>
-                    <p>協助申請與爭議處理</p>
+                    <h4>🤝 全程服務</h4>
+                    <p>從事故發生到結案，全程陪伴協助</p>
                 </div>
                 <div class="service-item">
-                    <h4>⚖️ 法律諮詢轉介</h4>
-                    <p>專業律師團隊支援</p>
+                    <h4>⚖️ 代理訴訟</h4>
+                    <p>專業律師代理民事、刑事訴訟</p>
+                </div>
+                <div class="service-item">
+                    <h4>💰 理賠建議</h4>
+                    <p>保險理賠評估與談判策略規劃</p>
+                </div>
+                <div class="service-item">
+                    <h4>💼 保險理賠協助</h4>
+                    <p>協助申請與爭議處理</p>
                 </div>
                 <div class="service-item">
                     <h4>📁 文件與證據整理</h4>
@@ -647,22 +655,22 @@
         <div class="container">
             <h2>聯絡我們</h2>
             <div class="form-container">
-                <form id="contactForm">
+                <form id="contactForm" name="contact-form">
                     <div class="form-group">
                         <label><span class="form-icon">👤</span>姓名（必填）</label>
-                        <input type="text" placeholder="請輸入您的姓名" required>
+                        <input type="text" name="name" placeholder="請輸入您的姓名" required>
                     </div>
                     <div class="form-group">
                         <label><span class="form-icon">📞</span>聯絡電話（必填）</label>
-                        <input type="tel" placeholder="請輸入您的電話號碼" required>
+                        <input type="tel" name="phone" placeholder="請輸入您的電話號碼" required>
                     </div>
                     <div class="form-group">
                         <label><span class="form-icon">✉️</span>電子郵件（選填）</label>
-                        <input type="email" placeholder="請輸入您的 Email">
+                        <input type="email" name="email" placeholder="請輸入您的 Email">
                     </div>
                     <div class="form-group">
                         <label>事故類型</label>
-                        <select>
+                        <select name="accident_type">
                             <option>我被撞了</option>
                             <option>我撞到別人</option>
                             <option>雙方責任不明</option>
@@ -671,15 +679,15 @@
                     </div>
                     <div class="form-group">
                         <label>您的需求</label>
-                        <textarea placeholder="請簡述車禍狀況或想了解的問題"></textarea>
+                        <textarea name="message" placeholder="請簡述車禍狀況或想了解的問題"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label>📎 上傳檔案（選填）</label>
-                        <input type="file" accept="image/*,.pdf,.docx">
-                        <small style="color: #757575; display: block; margin-top: 5px;">可上傳照片、和解書、警察筆錄等文件</small>
-                    </div>
-                    <button type="submit" class="submit-btn">送出表單</button>
+                    <div id="formStatus" style="margin: 15px 0; padding: 10px; border-radius: 8px; display: none;"></div>
+                    <button type="submit" class="submit-btn" id="submitBtn">送出表單</button>
                 </form>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; text-align: center;">
+                    <p style="margin: 0; color: #1976d2; font-size: 0.95rem;">📝 或直接填寫 <a href="https://forms.gle/AKfycbxVf1YhnZkkhoMOfu5r5SzjlHefwT78hEme-k_xL-j2Cc_TivpN_oT5qlmFfi3xt0k" target="_blank" style="color: #0071bc; font-weight: bold; text-decoration: underline;">Google 表單</a></p>
+                </div>
 
                 <div class="contact-info">
                     <h3>聯絡資訊</h3>
