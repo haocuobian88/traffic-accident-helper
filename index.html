@@ -686,7 +686,7 @@
                 </form>
                 
                 <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; text-align: center;">
-                    <p style="margin: 0; color: #1976d2; font-size: 0.95rem;">📝 或直接填寫 <a href="https://forms.gle/AKfycbyqza-35GeN3zwu6WXBHjOpJ18ZLlV5qGAdsGdf8kSbX9g_bU8sbIERXMi63MEf8t3o" target="_blank" style="color: #0071bc; font-weight: bold; text-decoration: underline;">Google 表單</a></p>
+                    <p style="margin: 0; color: #1976d2; font-size: 0.95rem;">📝 或直接填寫 <a href="https://forms.gle/AKfycbx1g7R85wErWFIMxRnbpdt8GdIAUOLlHvmnbaZkBB6bOnck91iox6hRAH_h8WTe8uX5" target="_blank" style="color: #0071bc; font-weight: bold; text-decoration: underline;">Google 表單</a></p>
                 </div>
 
                 <div class="contact-info">
@@ -715,7 +715,8 @@
 
     <script>
         // ⚠️ 重要：請將下方網址替換成你的 Google Apps Script 網址
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqza-35GeN3zwu6WXBHjOpJ18ZLlV5qGAdsGdf8kSbX9g_bU8sbIERXMi63MEf8t3o/exec';
+        // 例如：'https://script.google.com/macros/s/AKfycbxxx.../exec'
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1g7R85wErWFIMxRnbpdt8GdIAUOLlHvmnbaZkBB6bOnck91iox6hRAH_h8WTe8uX5/exec';  // 👈 在這裡貼上你的 Google Script 網址
         
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -739,6 +740,15 @@
             const formStatus = document.getElementById('formStatus');
             const form = e.target;
             
+            // 檢查是否已設定 Google Script URL
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID')) {
+                formStatus.style.display = 'block';
+                formStatus.style.backgroundColor = '#f8d7da';
+                formStatus.style.color = '#721c24';
+                formStatus.innerHTML = '⚠️ 系統設定未完成。<br><small>請直接來電：0800-123-456 或 Email：haocuobian88@gmail.com</small>';
+                return;
+            }
+            
             // 顯示提交中狀態
             submitBtn.disabled = true;
             submitBtn.textContent = '送出中...';
@@ -752,42 +762,41 @@
             const data = {
                 name: formData.get('name'),
                 phone: formData.get('phone'),
-                email: formData.get('email'),
+                email: formData.get('email') || '未提供',
                 accident_type: formData.get('accident_type'),
                 message: formData.get('message'),
-                timestamp: new Date().toLocaleString('zh-TW')
+                timestamp: new Date().toLocaleString('zh-TW', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                })
             };
             
-            // 提交到 Google Apps Script
-            // 使用 fetch 搭配 redirect 模式來檢測成功
+            // 提交到 Google Apps Script（使用 FormData 格式避免 CORS）
+            const formDataToSend = new FormData();
+            formDataToSend.append('data', JSON.stringify(data));
+            
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                redirect: 'follow',
-                headers: {
-                    'Content-Type': 'text/plain',
-                },
-                body: JSON.stringify(data)
+                body: formDataToSend
             })
-            .then(response => {
-                // 檢查回應狀態
-                if (response.ok || response.redirected) {
-                    // 顯示成功訊息
-                    formStatus.style.backgroundColor = '#d4edda';
-                    formStatus.style.color = '#155724';
-                    formStatus.innerHTML = '✓ 表單已成功送出！我們會盡快與您聯繫。<br><small>您的諮詢已記錄，請保持電話暢通。</small>';
-                    
-                    // 重置表單
-                    form.reset();
-                    
-                    // 5 秒後隱藏訊息
-                    setTimeout(() => {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                    
-                    return true;
-                } else {
-                    throw new Error('提交失敗');
-                }
+            .then(response => response.text())
+            .then(result => {
+                // 顯示成功訊息
+                formStatus.style.backgroundColor = '#d4edda';
+                formStatus.style.color = '#155724';
+                formStatus.innerHTML = '✓ 表單已成功送出！我們會盡快與您聯繫。<br><small>您的諮詢已記錄，請保持電話暢通。</small>';
+                
+                // 重置表單
+                form.reset();
+                
+                // 5 秒後隱藏訊息
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
             })
             .catch(error => {
                 console.error('Error:', error);
