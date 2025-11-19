@@ -697,9 +697,440 @@
         </div>
     </footer>
 
+    <!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 關鍵字優化區域 -->
+    <title>車禍諮詢與法律協助 | 專業車禍處理流程、理賠與和解專家</title>
+    <meta name="description" content="提供專業車禍諮詢、法律協助與交通事故諮詢服務。完整解析車禍處理流程、車禍理賠步驟、和解談判技巧與訴訟求償。解決您「被撞了怎麼辦」、「如何與對方溝通」等疑難雜症。立即預約免費車禍法律諮詢。">
+    <meta name="keywords" content="車禍諮詢, 車禍法律諮詢, 車禍處理流程, 車禍理賠, 車禍協調, 車禍訴訟, 車禍和解, 交通事故諮詢, 車禍求償, 車禍申請理賠, 車禍發生後怎麼辦, 被撞了要怎麼處理">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="車禍諮詢與法律協助 | 專業一站式服務">
+    <meta property="og:description" content="不懂車禍處理流程？遇到理賠刁難？我們提供專業車禍法律諮詢、和解協調與訴訟支援。">
+    <meta property="og:type" content="website">
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "車禍發生後怎麼辦？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "車禍發生當下請保持冷靜，立即確認安全並報警（撥打110或119）。切勿移動車輛，並進行拍照蒐證、保留行車紀錄器畫面，以利後續釐清肇事責任。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "車禍談和解要注意什麼？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "談判時應保持理性，聚焦事實與損失證明。簽署和解書時需載明賠償金額、付款方式，並註明「放棄其餘民刑事請求權」，建議尋求律師或調解委員會見證。"
+        }
+      }]
+    }
+    </script>
+
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 自定義配色設定 -->
     <script>
-        
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1g7R85wErWFIMxRnbpdt8GdIAUOLlHvmnbaZkBB6bOnck91iox6hRAH_h8WTe8uX5/exec';  // 
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#1E40AF',
+                            action: '#2563EB',
+                            actionHover: '#1D4ED8',
+                            accent: '#F59E0B',
+                            bg: '#F8FAFC',        
+                            surface: '#FFFFFF',   
+                            subtext: '#475569',   
+                            border: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', '"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .grid-bg {
+            background-color: #F8FAFC;
+            background-image: linear-gradient(#E2E8F0 1px, transparent 1px),
+            linear-gradient(90deg, #E2E8F0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            ring: 2px;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-brand-bg text-slate-800 antialiased selection:bg-brand-action selection:text-white">
+
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-shield-halved text-brand-action text-2xl mr-2"></i>
+                    <span class="font-bold text-xl text-brand-primary tracking-tight">車禍處理諮詢網</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#steps" class="text-slate-600 hover:text-brand-action px-3 py-2 rounded-md text-sm font-medium transition">處理流程</a>
+                        <a href="#settlement" class="text-slate-600 hover:text-brand-action px-3 py-2 rounded-md text-sm font-medium transition">和解協調</a>
+                        <a href="#insurance" class="text-slate-600 hover:text-brand-action px-3 py-2 rounded-md text-sm font-medium transition">理賠申請</a>
+                        <a href="#contact" class="bg-brand-action hover:bg-brand-actionHover text-white px-5 py-2.5 rounded-lg text-sm font-bold transition shadow-md shadow-blue-500/20">立即預約</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-brand-action hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#steps" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700">處理流程</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-brand-action font-bold bg-blue-50">立即預約諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 區 -->
+    <section class="relative grid-bg min-h-[90vh] flex items-center justify-center pt-16 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-50/80 rounded-full blur-3xl -z-10"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-flex items-center py-1 px-3 rounded-full bg-blue-50 border border-blue-200 text-brand-action text-sm font-semibold mb-8 shadow-sm">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                交通事故諮詢首選 24H 線上服務
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-slate-900">
+                車禍處理諮詢與<span class="text-brand-action relative whitespace-nowrap">
+                    法律協助
+                    <svg class="absolute bottom-0 left-0 w-full h-3 text-yellow-400 -mb-2 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                    </svg>
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                不知道<strong>被撞了要怎麼處理</strong>？我們提供完整的<strong>車禍處理流程</strong>、<strong>車禍和解</strong>談判與<strong>車禍理賠</strong>建議。<br>
+                從事故現場到<strong>車禍訴訟</strong>，做您最堅強的法律後盾。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-brand-action hover:bg-brand-actionHover text-white font-bold py-4 px-8 rounded-xl transition shadow-lg shadow-blue-600/20 flex items-center justify-center transform hover:-translate-y-1">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> 預約車禍法律諮詢
+                </a>
+                <a href="#steps" class="bg-white border border-slate-200 text-slate-700 hover:border-brand-action hover:text-brand-action font-bold py-4 px-8 rounded-xl transition shadow-sm hover:shadow-md flex items-center justify-center">
+                    <i class="fa-solid fa-list-check mr-2"></i> 查看處理流程圖
+                </a>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-slate-200/60 flex flex-wrap justify-center gap-8 text-slate-400 grayscale opacity-70">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-xl"></i> 專業車禍律師</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-handshake text-xl"></i> 協調和解率高</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-award text-xl"></i> 求償經驗豐富</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊一：處理流程 -->
+    <section id="steps" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-4">車禍發生後怎麼辦？處理流程教學</h2>
+                <p class="text-brand-subtext text-lg">被撞了別慌張，依照以下四步驟<strong>收集證據</strong>並保護您的權益</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="relative p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-card transition group text-center">
+                    <div class="w-16 h-16 bg-white border-2 border-brand-accent rounded-full flex items-center justify-center text-brand-accent font-bold text-2xl mx-auto mb-6 shadow-sm">1</div>
+                    <i class="fa-solid fa-triangle-exclamation text-3xl text-brand-subtext mb-4"></i>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">車禍要不要報警？</h3>
+                    <p class="text-slate-600 text-sm">絕對要報警！撥打110，有人受傷撥119。切勿隨意移動車輛以免影響<strong>肇責判斷</strong>。</p>
+                </div>
+                <div class="relative p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-card transition group text-center">
+                    <div class="w-16 h-16 bg-white border-2 border-brand-accent rounded-full flex items-center justify-center text-brand-accent font-bold text-2xl mx-auto mb-6 shadow-sm">2</div>
+                    <i class="fa-solid fa-camera text-3xl text-brand-subtext mb-4"></i>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">如何收集證據？</h3>
+                    <p class="text-slate-600 text-sm"><strong>拍照蒐證</strong>現場全景、車損特寫，記錄對方車牌與聯絡資料，並保留行車紀錄器。</p>
+                </div>
+                <div class="relative p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-card transition group text-center">
+                    <div class="w-16 h-16 bg-white border-2 border-brand-accent rounded-full flex items-center justify-center text-brand-accent font-bold text-2xl mx-auto mb-6 shadow-sm">3</div>
+                    <i class="fa-solid fa-phone-volume text-3xl text-brand-subtext mb-4"></i>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">通知保險公司</h3>
+                    <p class="text-slate-600 text-sm">聯絡保險業務啟動<strong>車禍理賠步驟</strong>。切記：未經保險公司同意，勿私下承諾賠償。</p>
+                </div>
+                <div class="relative p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-card transition group text-center">
+                    <div class="w-16 h-16 bg-white border-2 border-brand-accent rounded-full flex items-center justify-center text-brand-accent font-bold text-2xl mx-auto mb-6 shadow-sm">4</div>
+                    <i class="fa-solid fa-file-invoice-dollar text-3xl text-brand-subtext mb-4"></i>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">保留求償單據</h3>
+                    <p class="text-slate-600 text-sm">保留所有醫療收據、診斷證明以進行<strong>車禍求償</strong>；車損部分請保留修車估價單。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊二：和解協調 -->
+    <section id="settlement" class="py-24 bg-blue-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-4">溝通技巧</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-6">車禍和解與溝通協調流程</h2>
+                    <p class="text-lg text-slate-600 mb-8"><strong>車禍如何與對方溝通</strong>？掌握正確的<strong>車禍協調</strong>技巧，能有效避免衝突並保障自身利益。</p>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow-sm text-brand-action flex items-center justify-center mt-1 border border-slate-100">
+                                <i class="fa-regular fa-comments text-xl"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">車禍談和解要注意什麼？</h4>
+                                <p class="text-slate-600 text-sm">保持理性，不輕易認錯，聚焦於事實與損失證明。</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow-sm text-brand-action flex items-center justify-center mt-1 border border-slate-100">
+                                <i class="fa-solid fa-file-signature text-xl"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">和解書簽署建議</h4>
+                                <p class="text-slate-600 text-sm">需載明<strong>車禍求償</strong>金額，並註明「放棄其餘民刑事請求權」。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-soft p-10 border border-slate-100 text-center">
+                        <div class="bg-blue-50 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa-solid fa-handshake text-6xl text-brand-action"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">專業車禍協調</h3>
+                        <p class="text-slate-500">減少衝突，提高和解成功率</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊三：理賠與保險 -->
+    <section id="insurance" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-4">車禍理賠步驟與保險教學</h2>
+                <p class="text-brand-subtext">搞懂<strong>車禍申請理賠</strong>流程，爭取應有的賠償金</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brand-surface rounded-2xl p-8 border border-slate-200 hover:border-brand-action hover:shadow-card transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brand-action text-2xl"><i class="fa-solid fa-car-burst"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">車禍保險理賠種類</h3>
+                    <ul class="text-slate-600 text-sm space-y-3">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i> 強制險：賠人身受傷/死亡。</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i> 第三責任險：賠對方人身與財損。</li>
+                    </ul>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-8 border border-slate-200 hover:border-brand-action hover:shadow-card transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brand-action text-2xl"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">車禍理賠步驟教學</h3>
+                    <ul class="text-slate-600 text-sm space-y-3">
+                        <li class="flex items-center"><i class="fa-solid fa-arrow-right text-brand-action mr-3"></i> 事故後5日內通知保險公司。</li>
+                        <li class="flex items-center"><i class="fa-solid fa-arrow-right text-brand-action mr-3"></i> 申請「初判表」與現場圖。</li>
+                    </ul>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-8 border border-slate-200 hover:border-brand-action hover:shadow-card transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brand-action text-2xl"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">理賠爭議處理</h3>
+                    <p class="text-slate-600 text-sm mb-6">若<strong>車禍申請理賠</strong>遭拒或金額過低，可尋求<strong>車禍法律諮詢</strong>。</p>
+                    <a href="#contact" class="text-brand-action text-sm font-bold hover:underline flex items-center">尋求律師協助 <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊四：法律訴訟 -->
+    <section id="legal" class="py-24 bg-brand-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">車禍訴訟流程說明</h2>
+                <p class="text-blue-200">當<strong>車禍和解</strong>破局，法律是您最後的防線</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                <div class="bg-blue-900/50 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30 text-center">
+                    <div class="w-10 h-10 bg-white text-brand-primary rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-lg font-bold mb-2">申請調解</h3>
+                    <p class="text-sm text-blue-100">向鄉鎮市區調解委員會申請。</p>
+                </div>
+                <div class="bg-blue-900/50 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30 text-center">
+                    <div class="w-10 h-10 bg-white text-brand-primary rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-lg font-bold mb-2">刑事訴訟</h3>
+                    <p class="text-sm text-blue-100">6個月內提告「過失傷害」。</p>
+                </div>
+                <div class="bg-blue-900/50 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30 text-center">
+                    <div class="w-10 h-10 bg-white text-brand-primary rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-lg font-bold mb-2">民事訴訟</h3>
+                    <p class="text-sm text-blue-100">2年內提出<strong>車禍求償</strong>訴訟。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-10 h-10 bg-brand-accent text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="text-lg font-bold mb-2 text-slate-900">專業法律支援</h3>
+                    <p class="text-sm text-slate-600">律師協助撰寫書狀、出庭辯護。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 評價區塊 -->
+    <section id="reviews" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-4">客戶評價與成功案例</h2>
+                <p class="text-brand-subtext">協助超過 500+ 位客戶成功爭取<strong>車禍求償</strong></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-slate-100">
+                    <div class="flex text-brand-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 mb-6">"感謝律師團隊協助整理醫療證據並出面進行<strong>車禍協調</strong>，成功爭取到全額理賠！"</p>
+                    <div class="flex items-center"><div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-brand-primary font-bold">陳</div><div class="ml-3"><p class="text-sm font-bold text-slate-900">陳先生</p></div></div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-slate-100">
+                    <div class="flex text-brand-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 mb-6">"律師協助<strong>車禍和解</strong>，最後賠償金額降到合理範圍，非常感謝！"</p>
+                    <div class="flex items-center"><div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-brand-primary font-bold">林</div><div class="ml-3"><p class="text-sm font-bold text-slate-900">林小姐</p></div></div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-slate-100">
+                    <div class="flex text-brand-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 mb-6">"網站的<strong>車禍處理流程圖</strong>寫得很清楚，後續的<strong>法律諮詢</strong>也讓我很安心。"</p>
+                    <div class="flex items-center"><div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-brand-primary font-bold">王</div><div class="ml-3"><p class="text-sm font-bold text-slate-900">王先生</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 諮詢表單 (★已修改 ID 與 Name 以配合腳本) -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5">
+                    <h2 class="text-3xl font-bold mb-6 text-slate-900">立即預約<br><span class="text-brand-action">專業車禍諮詢</span></h2>
+                    <p class="text-slate-600 mb-8 text-lg">
+                        提供客製化建議與<strong>車禍法律諮詢</strong>。填寫表單，讓我們協助您處理繁雜的保險理賠與法律程序。
+                    </p>
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-50 p-3 rounded-lg"><i class="fa-solid fa-phone-volume text-brand-action text-xl"></i></div>
+                            <div class="ml-4"><p class="font-bold text-slate-900">免付費諮詢專線</p><p class="text-slate-600">0800-123-456</p></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-50 p-3 rounded-lg"><i class="fa-brands fa-line text-green-600 text-xl"></i></div>
+                            <div class="ml-4"><p class="font-bold text-slate-900">LINE 官方帳號</p><p class="text-slate-600">@AccidentHelp</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-2xl shadow-card p-8 md:p-10 border border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-4 border-b border-slate-100">填寫諮詢表單</h3>
+                        
+                        <!-- ★ 注意：id 已改為 contactForm，Input 增加了 name 屬性 -->
+                        <form id="contactForm" class="space-y-6">
+                            
+                            <!-- 狀態顯示區塊 -->
+                            <div id="formStatus" class="hidden p-4 rounded-lg mb-4 text-sm"></div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">姓名 <span class="text-red-500">*</span></label>
+                                    <input type="text" name="name" required class="form-input w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900" placeholder="您的姓名">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">聯絡電話 <span class="text-red-500">*</span></label>
+                                    <input type="tel" name="phone" required class="form-input w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900" placeholder="您的電話">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">電子郵件 (選填)</label>
+                                <input type="email" name="email" class="form-input w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900" placeholder="您的 Email">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">事故類型</label>
+                                <select name="accident_type" class="form-input w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 cursor-pointer">
+                                    <option>我被撞了 (求償諮詢)</option>
+                                    <option>我撞到別人 (和解協調)</option>
+                                    <option>雙方責任不明 (肇責分析)</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">您的需求與狀況簡述</label>
+                                <textarea name="message" class="form-input w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 h-32" placeholder="請簡述車禍狀況，例如：需要理賠協助、和解談判..."></textarea>
+                            </div>
+                            
+                            <!-- 檔案上傳區塊 (僅供視覺參考，Script 目前不支援檔案傳送) -->
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">上傳相關文件 (選填)</label>
+                                <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:bg-slate-50 hover:border-brand-action transition cursor-pointer">
+                                    <i class="fa-solid fa-cloud-arrow-up text-slate-400 text-2xl mb-2"></i>
+                                    <p class="text-sm text-slate-500">點擊上傳 JPG, PNG, PDF (最大 5MB)</p>
+                                    <input type="file" class="hidden">
+                                </div>
+                            </div>
+
+                            <!-- ★ 注意：按鈕 ID 已改為 submitBtn -->
+                            <button type="submit" id="submitBtn" class="w-full bg-brand-action hover:bg-brand-actionHover text-white font-bold py-4 px-4 rounded-xl transition shadow-lg flex justify-center items-center group">
+                                送出表單，預約諮詢
+                                <i class="fa-solid fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-300 text-sm py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2023 Accident Help. All rights reserved.</p>
+                <p class="mt-2 text-slate-500">本網站資訊僅供參考，實際法律訴訟建議尋求專業律師。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ★ 整合 Google Apps Script 功能 -->
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1g7R85wErWFIMxRnbpdt8GdIAUOLlHvmnbaZkBB6bOnck91iox6hRAH_h8WTe8uX5/exec';
         
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -734,7 +1165,9 @@
             
             // 顯示提交中狀態
             submitBtn.disabled = true;
-            submitBtn.textContent = '送出中...';
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = '送出中...';
+            
             formStatus.style.display = 'block';
             formStatus.style.backgroundColor = '#fff3cd';
             formStatus.style.color = '#856404';
@@ -794,9 +1227,11 @@
             })
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.textContent = '送出表單';
+                submitBtn.innerText = '送出表單，預約諮詢';
             });
         });
     </script>
+</body>
+</html>
 </body>
 </html>
